@@ -10,12 +10,14 @@ public:
         return true;
     }
     bool remove(int val) {
-        auto i = mp.find(val);
-        if (i == mp.end()) return false;
-        out[i->second] = out.back();
+        auto it = mp.find(val);
+        if (it == mp.end()) return false;
+        int i = it->second;
+        int ed = out.back();
+        out[i] = ed;
+        mp[ed] = i;
         out.pop_back();
-        mp[out[i->second]] = i->second;
-        mp.erase(i);
+        mp.erase(it);
         return true;
     }
     int getRandom() {
