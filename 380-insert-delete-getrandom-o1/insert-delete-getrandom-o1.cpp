@@ -4,7 +4,7 @@ class RandomizedSet {
 public:
     RandomizedSet() {}
     bool insert(int val) {
-        if (mp.find(val) != mp.end()) return false;
+        if (mp.count(val)) return false;
         out.push_back(val);
         mp[val] = out.size() - 1;
         return true;
@@ -15,7 +15,7 @@ public:
         out[i->second] = out.back();
         out.pop_back();
         mp[out[i->second]] = i->second;
-        mp.erase(val);
+        mp.erase(i);
         return true;
     }
     int getRandom() {
