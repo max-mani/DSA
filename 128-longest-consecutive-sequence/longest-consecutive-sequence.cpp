@@ -5,8 +5,8 @@ public:
         int ans = 0;
         for (int i : out) {
             if (!out.count(i - 1)) {
-                int j = 1, res = 1;
-                while (out.count(i + j)) {
+                int j = i, res = 1;
+                while (out.count(1 + j)) {
                     res++;
                     j++;
                 }
