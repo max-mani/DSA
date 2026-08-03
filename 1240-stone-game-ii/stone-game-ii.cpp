@@ -8,9 +8,7 @@ public:
         if (2 * m >= n - i) return st[i];
         if (out[i][m] != -1) return out[i][m];
         int ans = 0;
-        for (int x = 1; x <= min(2 * m, n - i); x++) {
-            ans = max(ans, st[i] - solve(i + x, max(m, x), piles));
-        }
+        for (int x = 1; x <= min(2 * m, n - i); x++) ans = max(ans, st[i] - solve(i + x, max(m, x), piles));
         return out[i][m] = ans;
     }
     int stoneGameII(vector<int>& piles) {
