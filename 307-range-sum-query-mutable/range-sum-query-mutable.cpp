@@ -1,17 +1,17 @@
 class NumArray {
     int n;
-    vector<int>fin, nums;
+    vector<int>fin, num;
 public:
     NumArray(vector<int>& nums) {
         n = nums.size();
-        this->nums.assign(n, 0);
+        num.assign(n, 0);
         fin.assign(n + 1, 0);
         for (int i = 0; i < n; i++) update(i, nums[i]);
     }
     
     void update(int index, int val) {
-        int add = val - nums[index];
-        nums[index] = val;
+        int add = val - num[index];
+        num[index] = val;
         index++;
         while (index <= n) {
             fin[index] += add;
