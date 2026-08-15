@@ -1,14 +1,14 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        vector<int>dp(nums.size());
-        dp[0] = nums[0];
+        int dp2 = 0, dp1 = nums[0];
         for (int i = 1; i < nums.size(); i++) {
             int t = nums[i];
-            if (i > 1) t += dp[i - 2];
-            int nt = dp[i - 1];
-            dp[i] = max(t, nt);
+            if (i > 1) t += dp2;
+            int nt = dp1;
+            dp2 = dp1;
+            dp1 = max(t, nt);
         }
-        return dp[nums.size() - 1];
+        return dp1;
     }
 };
